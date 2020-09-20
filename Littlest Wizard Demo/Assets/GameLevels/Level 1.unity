@@ -4147,6 +4147,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1236132245}
   playerController: {fileID: 184451834}
   playerLogic: {fileID: 184451837}
+  PlayerCursor: {fileID: 1446959408}
   questCollider: {fileID: 216280805}
   allowToDialouge: 0
   QuestIcon: {fileID: 942484855}

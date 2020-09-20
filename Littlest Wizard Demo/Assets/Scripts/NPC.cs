@@ -15,6 +15,7 @@ public class NPC : MonoBehaviour
     public CameraController playerCamera;       //Reffrence to the Player Camera
     public PlayerController playerController;   //Refrence to the Playert Controller
     public PlayerLogic playerLogic;             //Reffrence to the Player Logic Script
+    public GameObject PlayerCursor;             //Reffrence to the Center Cursor
     [Space]
 
     [Header("Quest Range Collider")]
@@ -72,6 +73,7 @@ public class NPC : MonoBehaviour
         startDialougeRequest.SetActive(false);                          //Disables the Option for the player to start the Dialouge, becuase he is already in Dialouge
         dialougeBox.SetActive(true);                                    //Enables the Text Box for the Dialouge
         playerLogic.inDialouge = true;                                  //Tells the Player logic to Stop the player firing spells during dialouge
+        PlayerCursor.SetActive(false);                                  //Disables the cursor during the dialouge Sequence
     }
 
     //This function enables all the the player controlls that where disabled during dialouge
@@ -86,6 +88,7 @@ public class NPC : MonoBehaviour
         dialougeBox.SetActive(false);                                   //Disables the Dialouge Box
         QuestIcon.gameObject.SetActive(false);                          //Disables the Icon displaying an available quest
         playerLogic.inDialouge = false;                                 //Allows the Player to cast spells and attacks
+        PlayerCursor.SetActive(true);                                   //Re-Enables the Cursor
 
     }
 }

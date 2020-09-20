@@ -148,7 +148,7 @@ public class PlayerLogic : MonoBehaviour
             lightningProjectile.transform.rotation = projectileStart.rotation;                                          //Sets the rotation of the projectile so that it doenst look wonky when spawning
             rb.velocity = projectileStart.forward * 50;                                                                 //Sets the velocity of the projectile
 
-            timer = cooldown;
+            attackTimer = attackCooldown;
             
         }
     }

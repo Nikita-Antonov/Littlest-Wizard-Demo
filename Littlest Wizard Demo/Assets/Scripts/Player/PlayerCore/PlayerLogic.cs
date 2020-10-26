@@ -47,6 +47,8 @@ public class PlayerLogic : MonoBehaviour
     [Header("Dialouge Trigger")]
     public bool inDialouge;
 
+    private float falloff = 10f;              //This value is the falloff of the projectile, so that the player cant cheese the enemy
+
     void Start()
     {
         //Initiating all the valuse
@@ -148,7 +150,8 @@ public class PlayerLogic : MonoBehaviour
             lightningProjectile.transform.rotation = projectileStart.rotation;                                          //Sets the rotation of the projectile so that it doenst look wonky when spawning
             rb.velocity = projectileStart.forward * 50;                                                                 //Sets the velocity of the projectile
 
-            attackTimer = attackCooldown;
+            attackTimer = attackCooldown;                                                                               //Ressets the Attack Timer
+            Destroy(lightningProjectile, falloff);                                                                      //Destroys the projectile after a given time (falloff)
             
         }
     }

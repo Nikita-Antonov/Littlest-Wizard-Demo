@@ -5,10 +5,13 @@ using UnityEngine;
 public class QuestGiver : MonoBehaviour
 {
     [Header("Object Reffrences")]
-    public Quest quest;                         //Refrence to the Quest
+    public Quest startQuest;                         //Refrence to the Start of the Quest
+    public Quest endQuest;
     public Camera questCamera;                  //Refrence to the Camera that activates when the player is engaged in dialouge
     public GameObject startDialougeRequest;     //Reffrence to the UI to notify the player to start the dialouge
     public GameObject dialougeBox;              //Reffrence to the UI box where the dialouge is displayed
+    public GameObject levelBoss;
+
     [Space]
     
     [Header("Player Reffrences")]
@@ -35,6 +38,16 @@ public class QuestGiver : MonoBehaviour
 
     public void Update()
     {
+
+        if(levelBoss == null)                                   //Checks if the boss is still alive
+        {
+            //Stop Player From moving
+            playerController.enabled = false;
+
+            Cursor.lockState = CursorLockMode.None;             //Removes the Lock state on the cursor so the Player can progress through the Dialouge
+            FinishQuest();
+        }
+
         //Checkes if the player is allowed to dialouge
         if (allowToDialouge == true)
         {
@@ -68,8 +81,8 @@ public class QuestGiver : MonoBehaviour
     //Function to trigger the dialouge function in the "Quest Manager"
     public void TriggerDialouge()
     {
-        Debug.Log("Quest started from " + quest.questgiverName);        //Basic Debug to See who the quest was started from
-        FindObjectOfType<QuestManager>().StartQuest(quest);             //Finds the Quest Manager and Initiates the Quest/Dialouge
+        Debug.Log("Quest started from " + startQuest.questgiverName);        //Basic Debug to See who the quest was started from
+        FindObjectOfType<QuestManager>().StartQuest(startQuest);             //Finds the Quest Manager and Initiates the Quest/Dialouge
         startDialougeRequest.SetActive(false);                          //Disables the Option for the player to start the Dialouge, becuase he is already in Dialouge
         dialougeBox.SetActive(true);                                    //Enables the Text Box for the Dialouge
         playerLogic.inDialouge = true;                                  //Tells the Player logic to Stop the player firing spells during dialouge
@@ -94,7 +107,10 @@ public class QuestGiver : MonoBehaviour
 
     public void FinishQuest()
     {
-        playerController.enabled = false;                                //Re-enables the Player controller for movement
-        playerCamera.enabled = false;                                    //Re-enables the Player Camera to look around
+        FindObjectOfType<QuestManager>().StartQuest(endQuest);          //Finds the Quest Manager and Initiates the Dialiuge for the end of the Quest
+        startDialougeRequest.SetActive(false);                          //Disables the Option for the player to start the Dialouge, becuase he is already in Dialouge
+        dialougeBox.SetActive(true);                                    //Enables the Text Box for the Dialouge
+        playerLogic.inDialouge = true;                                  //Tells the Player logic to Stop the player firing spells during dialouge
+        PlayerCursor.SetActive(false);                                  //Disables the cursor during the dialouge Sequence
     }
 }

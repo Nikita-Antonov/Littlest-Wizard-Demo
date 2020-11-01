@@ -1033,7 +1033,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 99030053}
   questText: {fileID: 994888081}
-  levelBoss: {fileID: 0}
 --- !u!114 &20340648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3675,7 +3674,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184451833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39, y: 5.33, z: 30.7}
+  m_LocalPosition: {x: 276.25, y: 58.33, z: 340.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 220217450}
@@ -4123,28 +4122,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601bf74a462617840a2c9b3ed70ff70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest:
+  startQuest:
     questgiverName: Mike
     questDialouge:
     - Hey, can you help me? Please!
-    - A horrible thing has happened, the portal to the death realm has been opened
-      and the evil lord Dedus has rissen and summoned his minions!
-    - Can you please battle your way to the top of the mountain and defeat Dedus
-      in order to Destroy the portal?
+    - A horrible thing happened, the portal to the death realm has been opened and
+      the evil lord Dedus has rissen and summoned his minions!
+    - Can you please battle youyr way to the top of the mountain and defeat Dedus
+      in order to put a stop to his evil?
     - 'Use your spells, they will aid you in your journey!
 
       Use Left mouse
-      button to call upon the power of lightning and smite your foes.'
-    - If you ever get low on your health, press the number 1 key to heal yourslef
-      using honey magic.
-    - If you are getting overwhelemed use the number 2 key to call upon the mighty
-      frost to stun your opponents in place!
-    - And, you can use press the number 3 key to summon a ring of fire to ignite
-      your foes.
-    - Keep an eye out for bottles of honey (to heal) and bottles of mana (for mana).
+      button to call upon the power of lightning and smite your Foes.'
+    - If you ever get low on heath, press the number 1 key to heal yourself using
+      honey magic.
+    - If you are getting overwhelmed use the number 2 key to call upon the mighty
+      Frost to stun your opponents in place!
+    - And, you can press the number 3 key to summon a ring of fire to ignite your
+      Foes.
+    - Keep an eye out for bottles of honey (to heal) and bottles of mana(for ...
+      mana).
+    - Good luck, I will stay back and make sure none of them get past the door.
+  endQuest:
+    questgiverName: Mike
+    questDialouge:
+    - 'You ... you did it! Lord Dedus is Defeated!
+
+      (This is the end of the
+      demo, you may now close the game)'
   questCamera: {fileID: 1083299314}
   startDialougeRequest: {fileID: 1457587304}
   dialougeBox: {fileID: 1283680182}
+  levelBoss: {fileID: 1123521306}
   playerCamera: {fileID: 1236132245}
   playerController: {fileID: 184451834}
   playerLogic: {fileID: 184451837}
@@ -20526,6 +20535,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1122732060}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1123521306 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004301241525734857, guid: 4f7fb239905d96f4c9da1733b9c2c14a,
+    type: 3}
+  m_PrefabInstance: {fileID: 744251799}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1125950548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22190,7 +22205,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236132241}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39, y: 6.25, z: 20}
+  m_LocalPosition: {x: 276.25, y: 59.25, z: 330.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1262164272}

@@ -11,8 +11,6 @@ public class QuestManager : MonoBehaviour
 
     private Queue<string> questDialouge;
 
-    [SerializeField] private GameObject levelBoss;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -50,13 +48,5 @@ public class QuestManager : MonoBehaviour
         Debug.Log("End of quest convo");
         FindObjectOfType<QuestGiver>().FinishDialouge();           //initiates the End of the Players Dialouge
         
-    }
-
-    public void EndQuest()
-    {
-        if(levelBoss == null)                               //Checks that the Level boss still exists in the level
-        {
-            FindObjectOfType<QuestGiver>().FinishQuest();
-        }
     }
 }
